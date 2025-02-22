@@ -1,0 +1,48 @@
+Purpose
+Check that the Campaign Scheduling system communicates and cooperates correctly with the Email Template and Recipient Management services. The focus is to catch issues where these systems interact.
+
+Testing Focus
+Template and Recipient Data Fetching: Can the scheduling system correctly pull data from both the template and recipient services?
+Campaign Creation Using External Data: Can it use this fetched data to create campaigns as expected?
+Error Handling: How does the scheduling system deal with failures or incorrect data from other services?
+Load Handling: Is the system stable and responsive under heavy use?
+Tools and Setup
+Docker: To replicate production-like conditions in a controlled environment.
+API Testing Tools (Postman, Swagger): For manually triggering and inspecting the interactions between services.
+Automated Testing Tools (pytest): For running predefined interaction tests.
+Test Steps
+Template Fetching
+
+Objective: Confirm the system retrieves all available email templates without errors.
+Method: Trigger template requests via API and verify the response contains correct data.
+Expected Result: The correct template list is returned.
+Recipient List Fetching
+
+Objective: Ensure the system can fetch recipient lists as expected.
+Method: Make API calls to the recipient service and check for accurate recipient data.
+Expected Result: Recipient lists match expected data.
+Campaign Creation
+
+Objective: Test creating a campaign using templates and recipients fetched from external services.
+Method: Combine data fetched from other services in a campaign creation request.
+Expected Result: The campaign is created correctly using the external data.
+Error Handling
+
+Objective: Determine if the system handles service failures gracefully.
+Method: Simulate failures in template and recipient services and observe the scheduling system's response.
+Expected Result: The system logs errors appropriately and does not proceed with incorrect data.
+Performance Testing
+
+Objective: Assess system performance under high load conditions.
+Method: Simultaneously trigger multiple campaign setups to stress test the integration points.
+Expected Result: The system maintains performance without degradation or data loss.
+Test Data Needs
+Lists of templates and recipients for standard operations.
+Various error conditions to trigger failure modes.
+Execution Strategy
+Conduct tests in a sequential manner, starting from basic data fetching to more complex campaign creations.
+Use automated scripts for repetitive tests and manual testing for complex scenarios.
+Document all results and discrepancies in a test report for review.
+Potential Issues & Mitigations
+Service Downtime: Retry mechanisms and better error handling in place.
+Data Mismatches: Regular synchronization meetings between teams to ensure alignment.
