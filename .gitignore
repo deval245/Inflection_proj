@@ -1,0 +1,22 @@
+# Python environment
+venv/
+myenv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Logs and reports
+reports/
+*.log
+*.html
+pytest_html_report.html
+test_logs.log
+
+# Editor / IDE-specific files
+.vscode/
+.idea/
+*.iml
+
+# Docker-related files (if required)
+docker-compose.override.yml
