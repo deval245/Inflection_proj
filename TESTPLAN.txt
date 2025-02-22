@@ -1,0 +1,66 @@
+TEST PLAN
+
+Objective:
+Ensure that the Marketing Campaign Scheduling feature operates as expected, allowing users to create, schedule, edit, and cancel email campaigns effectively.
+Scope:
+Testing will cover all functionalities outlined in the user stories:
+* Creating new email campaigns with scheduled send times.
+* Selecting recipient lists for campaigns.
+* Choosing email templates for campaigns.
+* Editing existing campaigns.
+* Cancelling scheduled campaigns.
+Tools Required:
+* Docker: To run isolated environments that mimic the production server.
+* Postman or Swagger UI: For interacting with and testing APIs.
+* pytest: For writing and executing automated tests.
+
+Test Cases:
+1. Create Campaign Test
+    * Description: Test the ability to create a new email campaign with a specific scheduled send time and date.
+    * Steps:
+        1. Navigate to the "Create Campaign" interface.
+        2. Enter campaign details including name, time, and date.
+        3. Submit the form.
+    * Expected Result: The system saves the campaign and schedules it for the specified time and date, confirming creation in the user interface.
+2. Select Recipient List Test
+    * Description: Ensure that users can select a recipient list for their scheduled campaign.
+    * Steps:
+        1. During campaign creation, proceed to the "Select Recipient List" section.
+        2. Choose a recipient list from available lists.
+        3. Save the selection and proceed.
+    * Expected Result: The selected recipient list is saved and linked to the campaign, confirmed by a system message.
+3. Choose Email Template Test
+    * Description: Verify that users can select an email template for their campaign.
+    * Steps:
+        1. Access the email template selection during campaign setup.
+        2. Select a template from available options.
+        3. Apply the template and save the campaign.
+    * Expected Result: The email template is applied to the campaign, and changes are reflected in the campaign preview.
+4. Edit Campaign Test
+    * Description: Test the functionality to edit the name and other details of an existing campaign.
+    * Steps:
+        1. Select an existing campaign.
+        2. Click on the edit option.
+        3. Change the campaign name and other details as provided.
+        4. Save the changes.
+    * Expected Result: The campaign details are updated in the system, and the changes are confirmed through the user interface.
+5. Cancel Campaign Test
+    * Description: Ensure that users can cancel a scheduled campaign.
+    * Steps:
+        1. Choose a campaign intended for cancellation.
+        2. Click on the cancel option.
+        3. Confirm the cancellation.
+    * Expected Result: The campaign is cancelled, not scheduled to send, and this status is reflected in the campaign status details.
+Test Data:
+* Campaign names, dates, and times.
+* Lists of recipients.
+* Email templates.
+* Modifications for existing campaigns.
+Execution Criteria:
+* Pass: The campaign performs as expected with no critical bugs.
+* Fail: The campaign does not meet one or more of the expected results, or critical functionality is impaired.
+Deliverables:
+* Test scripts and automation code.
+* A detailed test report outlining executed test cases, observed outcomes, and any discrepancies from expected results.
+Documentation:
+* Each test case will be documented in a shared repository with details on setup, execution, and teardown instructions.
